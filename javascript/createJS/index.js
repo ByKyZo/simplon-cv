@@ -152,7 +152,6 @@ const handleStartLoading = (event) => {
             'ui-progressbar-value': 'loader__progressbar--value',
         },
     });
-    console.log(event.progress);
 };
 
 const handleEndLoading = () => {

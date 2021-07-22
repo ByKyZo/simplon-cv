@@ -34,7 +34,7 @@ function IntersectionAnimation() {
                      */
                     currentHiddenClass = entryElDirection;
                 }
-
+                // console.log(entry);
                 if (entry.isIntersecting) {
                     /**
                      * Afficher l'element

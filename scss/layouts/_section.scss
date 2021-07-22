@@ -148,12 +148,12 @@ section {
         padding: 0 6px;
         transform: skewX(-8deg);
         box-shadow: 0 0 8px $secondary3;
-        animation: listMarker 0.5s ease infinite alternate;
+        animation: shiny 0.5s ease infinite alternate;
     }
 }
 
 .btn-loader {
-    @include border-hover();
+    @include border-hover(0.5s, white);
     @include display-direction-justify-align(vrcenter);
     position: relative;
     background-color: transparent;
@@ -161,6 +161,13 @@ section {
     padding: 12px 16px;
     font-size: 1.3rem;
     font-weight: 600;
+    background-color: $secondary3;
+    animation: shiny 0.5s ease infinite alternate;
+
+    // text-shadow: 1px 1px 0px $secondary3, 1px 2px 0px $secondary3, 0px 0px 8px $secondary3;
+    // text-shadow: 1px 1px 0px $primary-light, 1px 2px 0px $primary-light, 0px 0px 8px $primary-light;
+    // text-shadow: 1px 1px 0px white, 1px 2px 0px white, 0px 0px 0px white;
+    // box-shadow: 0 0 8px $secondary3;
 
     @media (max-width: 1000px) {
         font-size: 1.2rem;

@@ -2,23 +2,14 @@ indexFile();
 
 function indexFile() {
     /**
-     * Enleve la d'animation des lettres du titre a la fin de l'animation
+     * On recupere tout les nav items par la data attr : 'data-nav'
      */
-    $('.header__title__letter-animation').on('animationend', (e) => {
-        $(e.target).removeClass('header__title__letter-animation');
-    });
+    const navItems = $('[data-nav]');
 
-    const navToHeader = $('#toHeader');
-    const navToSection1 = $('#toSection1');
-    const navToSection2 = $('#toSection2');
-    const navToSection3 = $('#toSection3');
-
-    const Anchors = {
-        header: '#header',
-        section1: '#section-1',
-        section2: '#section-2',
-        section3: '#section-3',
-    };
+    /**
+     * On recupere tout les destinations par la data attr : 'data-nav-destination'
+     */
+    const navDestinations = $('[data-nav-destination]');
 
     let onWheel = false;
 
@@ -44,47 +35,35 @@ function indexFile() {
             onWheel = false;
         }
     }, 1000);
+
     /**
      * Change le style du nav item selon la navigation (ancre)
      */
     const handleCurrentAnchorNavItem = () => {
         const currentAnchor = location.hash;
-        const navItems = $('.nav__item');
 
         $(navItems).each((index, navItem) => {
-            $(navItem).removeClass('active');
+            const navItemAnchor = $(navItem).attr('href');
+            if (navItemAnchor === currentAnchor) {
+                $(navItem).addClass('active');
+            } else {
+                $(navItem).removeClass('active');
+            }
         });
-
-        switch (currentAnchor) {
-            case Anchors.header:
-                $(navToHeader).addClass('active');
-                break;
-            case Anchors.section1:
-                $(navToSection1).addClass('active');
-                break;
-            case Anchors.section2:
-                $(navToSection2).addClass('active');
-                break;
-            case Anchors.section3:
-                $(navToSection3).addClass('active');
-                break;
-            default:
-                $(navToHeader).addClass('active');
-        }
     };
 
     handleCurrentAnchorNavItem();
 
     const observer = new IntersectionObserver(
-        (entries, observer) => {
+        (entries) => {
             entries.forEach((entry) => {
-                const entryAnchor = `#${$(entry.target).attr('id')}`;
+                const entryIDAnchor = `#${$(entry.target).attr('id')}`;
                 /**
                  * Change l'ancre dans l'url quand le user a la section dans son champ de vision
                  * Ne s'active pas si le user n'est pas entrain de scroll (bug avec les ancres sinon)
                  */
                 if (entry.isIntersecting && onWheel) {
-                    location.hash = entryAnchor;
+                    location.hash = entryIDAnchor;
                 }
             });
         },
@@ -93,10 +72,9 @@ function indexFile() {
         }
     );
 
-    observer.observe($(Anchors.header)[0]);
-    observer.observe($(Anchors.section1)[0]);
-    observer.observe($(Anchors.section2)[0]);
-    observer.observe($(Anchors.section3)[0]);
+    $(navDestinations).each((_, navDestination) => {
+        observer.observe(navDestination);
+    });
 
     /**
      * Detecte quand l'ancre change

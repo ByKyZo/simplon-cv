@@ -27,53 +27,55 @@
             </div>
         </div>
 
-        <!--  START MODAL  -->
         <div class="dialog-1">
             <div class="modal__content">
                 <span>Oups !</span>
-                <p>Alexis est en attente d'acquérir de nouvelles compétences</p>
+                <p>Alexis a probablement d'autres competences mais il ne le sait pas encore...</p>
             </div>
         </div>
-        <!--  END MODAL  -->
 
         <!--  START NAV  -->
         <nav id="navbar" class="nav nav--hidden">
-            <a data-hoverable data-clickable href="#header" id="toHeader" class="nav__item">
+            <a data-hoverable data-clickable data-nav href="#header" id="toHeader" class="nav__item">
                 <i class="fas fa-home"></i>
             </a>
             <span></span>
-            <a data-hoverable data-clickable href="#section-1" id="toSection1" class="nav__item">
+            <a data-hoverable data-clickable data-nav href="#section-1" id="toSection1" class="nav__item">
                 <i class="fas fa-flask"></i>
             </a>
             <span></span>
-            <a data-hoverable data-clickable href="#section-2" id="toSection2" class="nav__item" >
+            <a data-hoverable data-clickable data-nav href="#section-2" id="toSection2" class="nav__item" >
                 <i class="fas fa-bookmark"></i>
             </a>
             <span></span>
-            <a data-hoverable data-clickable href="#section-3" id="toSection3" class="nav__item">
+            <a data-hoverable data-clickable data-nav href="#section-3" id="toSection3" class="nav__item">
                 <i class="fas fa-chalkboard-teacher"></i>
+            </a>
+            <span></span>
+            <a data-hoverable data-clickable data-nav href="#section-4" id="toSection3" class="nav__item">
+                <i class="fas fa-shoe-prints"></i>
             </a>
         </nav>
         <!--  END NAV  -->
 
         <!--  START HEADER  -->
-        <header id="header" class="header canvas-filter">
+        <header data-nav-destination id="header" class="header canvas-filter">
             <h1 data-clickable data-intersection="top" class="header__title hidden-top" id="#name">
                 <span class="header__title__first-name">
-                    <span data-hoverable data-intersection="header__title__letter-animationT" class="header__title__letter-animation">A</span>
-                    <span data-hoverable data-intersection="header__title__letter-animationT" class="header__title__letter-animation">L</span>
-                    <span data-hoverable data-intersection="header__title__letter-animationT" class="header__title__letter-animation">E</span>
-                    <span data-hoverable data-intersection="header__title__letter-animationT" class="header__title__letter-animation">X</span>
-                    <span data-hoverable data-intersection="header__title__letter-animationT" class="header__title__letter-animation">I</span>
-                    <span data-hoverable data-intersection="header__title__letter-animationT" class="header__title__letter-animation">S</span>
+                    <span data-hoverable>A</span>
+                    <span data-hoverable>L</span>
+                    <span data-hoverable>E</span>
+                    <span data-hoverable>X</span>
+                    <span data-hoverable>I</span>
+                    <span data-hoverable>S</span>
                 </span>
                 <span class="header__title__last-name">
-                    <span data-hoverable class="header__title__letter-animation">R</span>
-                    <span data-hoverable class="header__title__letter-animation">O</span>
-                    <span data-hoverable class="header__title__letter-animation">B</span>
-                    <span data-hoverable class="header__title__letter-animation">E</span>
-                    <span data-hoverable class="header__title__letter-animation">R</span>
-                    <span data-hoverable class="header__title__letter-animation">T</span>
+                    <span data-hoverable>R</span>
+                    <span data-hoverable>O</span>
+                    <span data-hoverable>B</span>
+                    <span data-hoverable>E</span>
+                    <span data-hoverable>R</span>
+                    <span data-hoverable>T</span>
                 </span>
             </h1>
 
@@ -125,6 +127,7 @@
                 data-clickable
                 data-intersection="right"
                 href="mailto:alex07cmj@gmail.com"
+                id='mail'
                 class="header__item header__item--email hidden-right"
             >
                 <i class="fas fa-envelope"></i>
@@ -137,26 +140,27 @@
         <canvas height="1000" width="1000" class='header__canvas' id="createJS"></canvas>
 
         <!-- START SECTION 1  -->
-        <section id="section-1" class="section-1 canvas-filter">
+        <section data-nav-destination  id="section-1" class="section-1 canvas-filter">
             <h2 data-hoverable data-intersection="__section-title-hidden">
                 <a href="#section-1">
                     # COMPETENCES PROFESSIONNELLES
                 </a>
             </h2>
             <ul>
-                <li data-intersection="left"><span class='list-item-marker'>1</span><p>Respecter les règles d’hygiène</p></li>
+                <li data-intersection="left"><span class='list-item-marker'>1</span><p>Travailler en équipe</p></li>
                 <li data-intersection="left"><span class='list-item-marker'>2</span><p>Veiller au respect de la sécurité</p></li>
                 <li data-intersection="left"><span class='list-item-marker'>3</span><p>Appliquer les consignes données</p></li>
+                <li data-intersection="left"><span class='list-item-marker'>4</span><p>Respecter les règles d’hygiène</p></li>
             </ul>
             <button data-hoverable data-clickable data-loader data-loader-function='openSkillDialog' class='btn-loader'>
                 <i class="far fa-arrow-alt-circle-up"></i>
-                <span>Charger d'autres compétences</span>
+                <span>Charger d'autres compétences !</span>
             </button>
         </section>
         <!-- END SECTION 1  -->
 
         <!-- START SECTION 2  -->
-        <section id="section-2" class="section-2 canvas-filter">
+        <section data-nav-destination  id="section-2" class="section-2 canvas-filter">
             <h2 data-hoverable data-intersection="__section-title-hidden">
                 <a href="#section-2">
                    # EXPERIENCES PROFESSIONNELLES
@@ -180,7 +184,7 @@
         <!-- END SECTION 2  -->
 
         <!-- START SECTION 3  -->
-        <section id="section-3" class="section-3 canvas-filter">
+        <section data-nav-destination  id="section-3" class="section-3 canvas-filter">
             <h2 data-hoverable data-intersection="__section-title-hidden">
                 <a href="#section-3">
                     # FORMATION
@@ -195,7 +199,7 @@
         <!-- END SECTION 3  -->
 
         <!-- START SECTION 4  -->
-        <section id="section-4" class="section-4">
+        <section data-nav-destination id="section-4" class="section-4">
         </section>
         <!-- END SECTION 4  -->
 
