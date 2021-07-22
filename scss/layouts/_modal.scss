@@ -1,0 +1,37 @@
+.modal {
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 1px solid $primary-light;
+    box-shadow: 0 0 6px $primary-light;
+    z-index: 997;
+    position: fixed;
+    backdrop-filter: blur(2px);
+    color: white;
+
+    &__titlebar {
+        height: 0;
+    }
+
+    &__content {
+        padding: 14px 8px;
+        text-align: center;
+
+        span {
+            font-size: 1.4rem;
+        }
+    }
+
+    &__btn-ok {
+        @include border-hover();
+        @include display-direction-justify-align(fullcenter);
+        position: relative;
+        font-size: 1.1rem;
+        height: 30px;
+        width: 60px;
+        color: white;
+        margin: 8px auto;
+    }
+}
+
+.ui-dialog-titlebar-close {
+    display: none;
+}

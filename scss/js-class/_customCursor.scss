@@ -1,0 +1,73 @@
+#cursor {
+    position: fixed;
+    border: 2px solid $primary-light;
+    z-index: 1000;
+    pointer-events: none;
+    border-radius: 50%;
+    transition: height 0.3s ease, width 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+
+    transform: translate(-50%, -50%);
+}
+
+.__cursor-hover {
+    backdrop-filter: saturate(0%);
+}
+
+.__cursor-active {
+}
+
+.__click-tracker {
+    z-index: 999;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: white;
+    pointer-events: none;
+
+    transition: 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.__clickable-bubble {
+    transform: translate(-50%, -50%);
+    position: absolute;
+    background-color: white;
+    border-radius: 999999px;
+    z-index: 9999;
+    pointer-events: none;
+
+    transition: 1.5s ease;
+}
+
+.__progress-bar {
+    border: 1px solid white;
+    height: 20px;
+    width: 150px;
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: scale(0) translateX(-50%);
+    transform-origin: center;
+    transition: 0.3s ease;
+
+    &:before {
+        content: attr(aria-valuenow) '%';
+        color: white;
+        position: absolute;
+        bottom: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &--complete {
+    }
+
+    &--value {
+        background-color: $primary-light;
+        height: 100%;
+    }
+    &--enter {
+        transform: scale(1) translateX(-50%) !important;
+    }
+    &--exit {
+        transform: scale(0) translateX(-50%) !important;
+    }
+}

@@ -1,0 +1,69 @@
+@import './utils/variables';
+@import './utils/mixins';
+@import './utils/animations';
+@import './layouts/header';
+@import './layouts/navbar';
+@import './layouts/section';
+@import './layouts/modal';
+@import './js-class/customCursor';
+@import './js-class/intersectionObserver';
+
+* {
+    margin: 0;
+    padding: 0;
+    cursor: none;
+    ::selection {
+        background-color: $primary;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    background-color: inherit;
+    border: none;
+    user-select: none;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+#createJS {
+    position: fixed;
+    top: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.canvas-filter {
+    z-index: 1;
+    position: relative;
+
+    &::before {
+        content: '';
+        top: 0;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        background-color: black;
+        opacity: 90%;
+    }
+}

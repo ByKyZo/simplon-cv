@@ -1,0 +1,150 @@
+.header {
+    @include display-direction-justify-align(fullcenter);
+    height: 100vh;
+    display: flex;
+    color: white;
+    position: relative;
+
+    &__title {
+        z-index: 1;
+        font-size: 4.6rem;
+        user-select: none;
+        position: relative;
+        display: inline-block;
+        padding: 8px 16px;
+        @include border-hover();
+
+        @media (max-width: 500px) {
+            font-size: 3.6rem;
+        }
+
+        &__first-name,
+        &__last-name {
+            // Style par defaut des lettres apres l'animation
+            > span {
+                display: inline-block;
+                transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+                &:hover {
+                    transform: translateY(-20px);
+                }
+            }
+        }
+
+        &__first-name {
+            margin-right: 50px;
+
+            @media (max-width: 880px) {
+                display: block;
+                margin-right: 0;
+                text-align: center;
+            }
+        }
+
+        // On assigne un animation delay a chaque a lettre
+        &__letter-animation {
+            display: inline-block;
+            transform: translateY(-50px) !important;
+            opacity: 0 !important;
+            animation: letterBounce 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+
+            &:nth-child(2) {
+                animation-delay: 0.1s;
+            }
+
+            &:nth-child(3) {
+                animation-delay: 0.2s;
+            }
+
+            &:nth-child(4) {
+                animation-delay: 0.3s;
+            }
+
+            &:nth-child(5) {
+                animation-delay: 0.4s;
+            }
+
+            &:nth-child(6) {
+                animation-delay: 0.5s;
+            }
+        }
+    }
+
+    &__item {
+        @include display-direction-justify-align(vrcenter);
+        @include border-hover();
+        display: inline-block;
+        position: absolute;
+        bottom: 50px;
+        font-size: 1.4rem;
+        color: inherit;
+        text-decoration: none;
+        z-index: 1;
+        padding: 8px 16px;
+        transition: color 0.6s;
+        user-select: none;
+
+        @media (max-width: 1000px) {
+            @include display-direction-justify-align(fullcenter);
+            height: 40px;
+            width: 40px;
+            bottom: 15px;
+        }
+
+        &--phone-number {
+            left: 50px;
+
+            @media (max-width: 1000px) {
+                left: 15px;
+            }
+        }
+
+        &--email {
+            right: 50px;
+
+            @media (max-width: 1000px) {
+                right: 15px;
+            }
+        }
+
+        span {
+            margin-right: 8px;
+
+            @media (max-width: 1000px) {
+                display: none;
+            }
+        }
+    }
+
+    // Animation des elements du svg
+    &__btn-scroll {
+        position: absolute;
+        bottom: 50px;
+        height: 90px;
+        width: 90px;
+        background-color: transparent;
+        border: none;
+        animation: btnScrollWrapper 1s ease infinite alternate;
+
+        svg {
+            height: 100%;
+            width: 100%;
+            fill: $primary-light;
+        }
+
+        &__body {
+        }
+
+        &__dot {
+            animation: btnScrollDot 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite alternate;
+        }
+
+        &__arrow {
+            animation: btnScrollArrow 1s ease infinite alternate;
+
+            &--2 {
+                animation-delay: 0.3s;
+            }
+        }
+    }
+}

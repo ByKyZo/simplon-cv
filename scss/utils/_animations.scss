@@ -1,0 +1,52 @@
+@keyframes letterBounce {
+    0% {
+        opacity: 0.3;
+        transform: translateY(-50px);
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes btnScrollWrapper {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes btnScrollDot {
+    0% {
+        fill: white;
+        transform: translateY(0);
+    }
+
+    100% {
+        fill: $primary-light;
+        transform: translateY(30px);
+    }
+}
+
+@keyframes btnScrollArrow {
+    0% {
+        fill: white;
+    }
+
+    100% {
+        fill: $primary-light;
+    }
+}
+
+@keyframes listMarker {
+    0% {
+        box-shadow: 0 0 6px $secondary3;
+    }
+
+    100% {
+        box-shadow: 0 0 8px $secondary3;
+    }
+}

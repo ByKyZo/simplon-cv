@@ -1,0 +1,8 @@
+{
+    "scripts": {
+        "watch": "sass --watch scss/index.scss css/index.css"
+    },
+    "devDependencies": {
+        "prettier": "^2.3.2"
+    }
+}

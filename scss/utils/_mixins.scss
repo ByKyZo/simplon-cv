@@ -1,0 +1,75 @@
+// Simple mixin pour les flex box basiques
+@mixin display-direction-justify-align(
+    $display: flex,
+    $direction: row,
+    $justify: stretch,
+    $align: stretch
+) {
+    @if ($display == fullcenter) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    } @else if($display == vrcenter) {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    } @else if($display == hrcenter) {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    } @else {
+        display: $display;
+        flex-direction: $direction;
+        justify-content: $justify;
+        align-items: $align;
+    }
+}
+
+@mixin border-hover($duration: 0.5s, $color: $primary-light) {
+    $border-width: 2px;
+
+    overflow: hidden;
+    transition: color 0.6s;
+
+    // Initialise les pseudos elements pour l'animation
+    &:after,
+    &:before {
+        content: '';
+        position: absolute;
+        height: 10%;
+        width: 5%;
+        pointer-events: none;
+        transition: height $duration ease-out calc(#{$duration} * 0.9),
+            width calc(#{$duration} * 0.9) ease-in-out;
+    }
+
+    // Assigne les propriétés pour les bordures bottom et right
+    &:before {
+        border-bottom: $border-width solid $color;
+        border-right: $border-width solid $color;
+
+        bottom: 0;
+        right: 0;
+    }
+
+    // Assigne les propriétés pour les bordures top et left
+    &:after {
+        border-top: $border-width solid $color;
+        border-left: $border-width solid $color;
+
+        top: 0;
+        left: 0;
+    }
+
+    // Lance l'animation des 'bordures' au hover
+    &:hover,
+    &:focus-visible {
+        outline: none;
+        color: $color;
+        &:after,
+        &:before {
+            height: 100%;
+            width: 100%;
+        }
+    }
+}

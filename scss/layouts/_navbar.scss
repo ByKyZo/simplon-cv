@@ -1,0 +1,48 @@
+.nav {
+    position: fixed;
+    z-index: 998;
+    top: 50%;
+    left: 0;
+
+    transform: translate(0, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.6s ease;
+    background-color: rgba(black, 0.3);
+    backdrop-filter: blur(2.6px);
+    -webkit-backdrop-filter: blur(2.6px);
+
+    @media (max-width: 600px) {
+        width: 100%;
+        top: 0;
+        left: 50%;
+        flex-direction: row;
+        transform: translate(-50%, 0);
+    }
+
+    > span {
+        display: inline-block;
+        width: 20px;
+        height: 1px;
+        margin: 10px;
+        background-color: $primary;
+    }
+
+    &__item {
+        position: relative;
+        overflow: hidden;
+        text-decoration: none;
+        font-size: 2rem;
+        color: $primary;
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 10px;
+        transition: 1s ease;
+
+        &.active {
+            color: white;
+        }
+    }
+}
