@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style='overflow: hidden;'>
     <head>
         <meta charset="UTF-8" />
         <title>Simplon CV</title>
@@ -18,7 +18,14 @@
         <link rel="stylesheet" href="./css/index.css" />
     </head>
 
-    <body onload="init();">
+    <body onload="init();" >
+
+        <div class="loader">
+            <div class="loader__content">
+                <h1>Chargement du canvas ...</h1>
+                <div id='loader-progressbar'></div>
+            </div>
+        </div>
 
         <!--  START MODAL  -->
         <div class="dialog-1">

@@ -1,0 +1,47 @@
+.loader {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 998;
+    background-color: $primary;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+
+    &__content {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
+        width: 320px;
+
+        h1 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+    }
+
+    &__progressbar {
+        height: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        max-width: 100%;
+
+        &--value {
+            height: 100%;
+            background-color: $primary-light;
+            transition: 0.3s ease;
+        }
+
+        &:before {
+            content: attr(aria-valuenow) '%';
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    &--end {
+        opacity: 0;
+    }
+}

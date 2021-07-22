@@ -3,6 +3,7 @@ const canvas = document.querySelector('#createJS');
 
 const init = () => {
     resizeCanvas(canvas);
+    handleInitProgressbar();
 
     /*
      * On recupere le canvas pour crée l'objet Stage
@@ -15,6 +16,13 @@ const init = () => {
      * Quand les images on fini de charger on lance le script
      */
     loader.addEventListener('complete', handleComplete);
+
+    /**
+     ** Actualise la valeur de la progressbar
+     */
+    loader.addEventListener('progress', (e) => {
+        handleStartLoading(e);
+    });
 
     /*
      * Les images a charger
@@ -38,6 +46,12 @@ const init = () => {
 };
 
 const handleComplete = () => {
+    /**
+     * A la fin du chargement des images la page de loading est retiré du DOM
+     */
+    handleEndLoading();
+
+    console.log('CREATEJS LOAD');
     const background = new createjs.Bitmap(loader.getResult('bg-1'));
     const background2 = new createjs.Bitmap(loader.getResult('bg-2'));
 
@@ -115,4 +129,40 @@ const resizeCanvas = (canvas) => {
     }
 
     resizeCanvasFn();
+};
+
+const handleInitProgressbar = () => {
+    $('#loader-progressbar').progressbar({
+        value: 0,
+        classes: {
+            'ui-progressbar': 'loader__progressbar',
+            'ui-progressbar-complete': 'loader__progressbar--complete',
+            'ui-progressbar-value': 'loader__progressbar--value',
+        },
+    });
+};
+
+const handleStartLoading = (event) => {
+    const progressValue = Math.round(event.progress * 100);
+    $('#loader-progressbar').progressbar({
+        value: progressValue,
+        classes: {
+            'ui-progressbar': 'loader__progressbar',
+            'ui-progressbar-complete': 'loader__progressbar--complete',
+            'ui-progressbar-value': 'loader__progressbar--value',
+        },
+    });
+    console.log(event.progress);
+};
+
+const handleEndLoading = () => {
+    $('.loader')
+        .addClass('loader--end')
+        .on('transitionend', (e) => {
+            e.target.remove();
+        });
+
+    $('html').css({
+        overflow: '',
+    });
 };

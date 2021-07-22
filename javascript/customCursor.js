@@ -118,7 +118,7 @@ $(document)
     });
 
 /**
- ** Créer une barre de chargement au clic sur un element avec la data attr : 'data-loader'
+ ** Créer une FAKE barre de chargement au clic sur un element avec la data attr : 'data-loader'
  ** -> et execute le fonction passer dans la data attr : 'data-loader-function', a la fin du chargement
  */
 const handleLoader = async (e) => {
